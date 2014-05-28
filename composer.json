@@ -1,0 +1,31 @@
+{
+	"name": "rcsv/cakephp-pickers-collection",
+	"type": "cakephp-plugin",
+	"description": "Picker is a plugin for CakePHP using jQuery pickers.",
+	"keywords": [
+		"cakephp",
+		"bootstrap",
+		"jquery"
+	],
+	"homepage": "http://github.com/rcsv/cakephp-pickers-collection/",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Tomohiro Awane",
+			"email": "rcsvpg@gmail.com"
+		}
+	],
+	"support": {
+		"issues": "https://github.com/rcsv/cakephp-pickers-collection/issues",
+		"source": "https://github.com/rcsv/cakephp-pickers-collection"
+	},
+	"require": {
+		"php" ">=5.3.0",
+		"composer/installers": "*",
+		"slywalker/cakephp-plugin-boost_cake": "*",
+		"moment/moment": ">=2.5.1"
+	},
+	"suggest": {
+		"twitter/bootstrap": "Bootstrap for Twitter"
+	}
+}
