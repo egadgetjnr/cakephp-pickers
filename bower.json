@@ -1,0 +1,16 @@
+{
+	"name": "cakephp-pickers-collection",
+	"version": "1.0.0",
+	"dependencies": {
+		"jquery-minicolors": null,
+		"jquery": null,
+		"bootstrap": null,
+		"bootstrap3-datetimepicker": null,
+		"jquery-locationpicker-plugin": null
+	},
+	"ignore": [
+		"**/.*",
+		"node_modules",
+		"components"
+	]
+}

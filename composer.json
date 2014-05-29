@@ -5,7 +5,8 @@
 	"keywords": [
 		"cakephp",
 		"bootstrap",
-		"jquery"
+		"jquery",
+		"formhelper"
 	],
 	"homepage": "http://github.com/rcsv/cakephp-pickers-collection/",
 	"license": "MIT",
@@ -20,10 +21,8 @@
 		"source": "https://github.com/rcsv/cakephp-pickers-collection"
 	},
 	"require": {
-		"php" ">=5.3.0",
-		"composer/installers": "*",
-		"slywalker/cakephp-plugin-boost_cake": "*",
-		"moment/moment": ">=2.5.1"
+		"php": ">=5.3.0",
+		"slywalker/boost_cake": "*"
 	},
 	"suggest": {
 		"twitter/bootstrap": "Bootstrap for Twitter"

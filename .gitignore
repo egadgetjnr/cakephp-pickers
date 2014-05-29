@@ -1,3 +1,24 @@
+### Git IGNORANCE FILE ------------------------------------------------------------
+# X. OS related
+!.DS_Store
+
+
+# 1. Git and related installer system related files 
+# -------------------------------------------------
+.gitignore
+.git/*
+composer.lock
+composer.phar
+
+# 2. IDE (Eclipse, Atom, ST3 etc.) related files
+# -------------------------------------------------
+.settings/*
+.buildpath
+.project
+.*.swp
+
+# 3. CakePHP related
+# -------------------------------------------------
 tmp/*
 [Cc]onfig/core.php
 [Cc]onfig/database.php
