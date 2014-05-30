@@ -101,27 +101,39 @@ class PickerFormHelper extends BoostCakeFormHelper {
 	 */
 	///@formatter:off
 	private $jsfiles = array(
-		'jquery' 			=> '//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js', 
-		'bootstrap'			=> '//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js', 
-		'jasny-bootstrap'	=> '//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js', 
-		'color' 			=> 'Picker.jquery.minicolors.min',
+		'jquery' 	=> '//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js', 
+		'bootstrap'	=> '//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js',
+		'modernizr'	=> '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.min.js',
 		
+		
+		// jQuery Minicolors
+		'color' 	=> 'Picker.jquery.minicolors.min',
+
+
 		// moment.js required >= 2.5.1 by datetimepicker
-		'moment' 			=> '//cdnjs.cloudflare.com/ajax/libs/moment.js/2.6.0/moment.min.js',  
-		// 'moment.ja' 		=> '//cdnjs.cloudflare.com/ajax/libs/moment.js/2.6.0/lang/ja.js', 
-		'date' 				=> '//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/js/bootstrap-datetimepicker.min.js', 
-		// 'date.ja' 			=> 'Picker.locales/bootstrap-datetimepicker.ja',
-		
+		// support locales
+		'moment' 	=> '//cdnjs.cloudflare.com/ajax/libs/moment.js/2.6.0/moment.min.js',  
+		// 'moment.ja' 	=> '//cdnjs.cloudflare.com/ajax/libs/moment.js/2.6.0/lang/ja.js', 
+
+
+		// bootstrap-datetimepicker 
+		// support locales
+		'date' 		=> '//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/js/bootstrap-datetimepicker.min.js', 
+		// 'date.ja'    => 'Picker.locales/bootstrap-datetimepicker.ja',
+
+
 		// Autocomplete
-		'typeahead'			=> '//cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.2/typeahead.bundle.min.js',
-		'bloodhound'		=> '//cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.2/bloodhound.min.js',
+		'typeahead'	=> '//cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.2/typeahead.bundle.min.js',
+		'bloodhound'	=> '//cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.2/bloodhound.min.js',
+
 
 		// JavaScript TimeZone detection library
-		'jstz' => '//cdnjs.cloudflare.com/ajax/libs/jstimezonedetect/1.0.4/jstz.min.js',
-		
+		'jstz' 		=> '//cdnjs.cloudflare.com/ajax/libs/jstimezonedetect/1.0.4/jstz.min.js',
+
+
 		// Location Picker :: http://logicify.github.io/jquery-locationpicker-plugin/
-		'gmaps' 			=> 'http://maps.google.com/maps/api/js?sensor=false&libraries=places', 
-		'location' 			=> 'Picker.locationpicker.jquery');
+		'gmaps' 	=> 'http://maps.google.com/maps/api/js?sensor=false&libraries=places', 
+		'location' 	=> 'Picker.locationpicker.jquery');
 	///@formatter:on
 	
 
@@ -135,11 +147,11 @@ class PickerFormHelper extends BoostCakeFormHelper {
 	///@formatter:off
 	private $cssfiles = array(
 		
-		'bootstrap'			=> '//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css', 
-		'jasny-bootstrap'	=> '//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css', 
-		'color' 			=> 'Picker.jquery.minicolors', 
-		'date' 				=> '//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/css/bootstrap-datetimepicker.min.css', 
-		'timezone' 			=> '//');
+		'bootstrap'	=> '//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css', 
+		'jasny-bootstrap' => '//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css', 
+		'color' 	=> 'Picker.jquery.minicolors', 
+		'date' 		=> '//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/css/bootstrap-datetimepicker.min.css', 
+		'timezone' 	=> '//');
 	///@formatter:on
 	
 
