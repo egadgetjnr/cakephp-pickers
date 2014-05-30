@@ -1,6 +1,5 @@
 <?php
-App::uses('FormHelper', 'View/Helper');
-App::uses('HtmlHelper', 'View/Helper');
+App::uses('BoostCakeHtmlHelper', 'BoostCake.View/Helper');
 App::uses('BoostCakeFormHelper', 'BoostCake.View/Helper');
 
 /**
@@ -26,14 +25,12 @@ App::uses('BoostCakeFormHelper', 'BoostCake.View/Helper');
  * @author rcsvpg@gmail.com
  * @link http://github.com/rcsv/pickers-collection
  */
-class PickerHelper extends BoostCakeFormHelper {
+class PickerFormHelper extends BoostCakeFormHelper {
 	
 	// Helpers what I am going to use, listed below.
 	// Pickers requires BoostCake plugin.
 	///@formatter:off
 	public $helpers = array(
-		'Picker.PickerHtml', 
-		'Form' => array('className' => 'BoostCake.BoostCakeForm'), 
 		'Html' => array('className' => 'BoostCake.BoostCakeHtml'));
 	///@formatter:on
 	
@@ -107,7 +104,8 @@ class PickerHelper extends BoostCakeFormHelper {
 		'jquery' 			=> '//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js', 
 		'bootstrap'			=> '//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js', 
 		'jasny-bootstrap'	=> '//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js', 
-		'color' 			=> 'Picker.jquery.minicolors.min', 
+		'color' 			=> 'Picker.jquery.minicolors.min',
+		
 		// moment.js required >= 2.5.1 by datetimepicker
 		'moment' 			=> '//cdnjs.cloudflare.com/ajax/libs/moment.js/2.6.0/moment.min.js',  
 		// 'moment.ja' 		=> '//cdnjs.cloudflare.com/ajax/libs/moment.js/2.6.0/lang/ja.js', 
