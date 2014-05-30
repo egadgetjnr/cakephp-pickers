@@ -111,14 +111,14 @@ class PickerFormHelper extends BoostCakeFormHelper {
 		// 'moment.ja' 		=> '//cdnjs.cloudflare.com/ajax/libs/moment.js/2.6.0/lang/ja.js', 
 		'date' 				=> '//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/js/bootstrap-datetimepicker.min.js', 
 		// 'date.ja' 			=> 'Picker.locales/bootstrap-datetimepicker.ja',
-		'gmaps' 			=> 'http://maps.google.com/maps/api/js?sensor=false&libraries=places', 
+		
+		// Autocomplete
+		'typeahead'			=> '//cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.2/typeahead.bundle.min.js',
+		'bloodhound'		=> '//cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.2/bloodhound.min.js',
+
 		// Location Picker :: http://logicify.github.io/jquery-locationpicker-plugin/
-		'location' 			=> 'Picker.locationpicker.jquery',
-		
-		// http://mngscl-10.s3-website-us-east-1.amazonaws.com/jquery-addresspicker-bootstrap/demos/index.html
-		'address'			=> '', // https://github.com/sgruhier/jquery-addresspicker 
-		
-		'timezone' 			=> '//');
+		'gmaps' 			=> 'http://maps.google.com/maps/api/js?sensor=false&libraries=places', 
+		'location' 			=> 'Picker.locationpicker.jquery');
 	///@formatter:on
 	
 
@@ -231,6 +231,39 @@ class PickerFormHelper extends BoostCakeFormHelper {
 	}
 
 
+	/**
+	 * 
+	 * @param unknown $fieldName
+	 * @param unknown $options
+	 */
+	public function country($fieldName, $options = array()) {
+		
+		$this->loadFiles(array('jquery', 'bootstrap', 'typeahead', 'bloodhound'));
+		echo $this->Html->scriptBlock(
+"$(document).ready(function () {
+var countries = new Bloodhound({
+	datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+	queryTokenizer: Bloodhound.tokenizers.whitespace,
+	limit: 10,
+	prefetch: {
+		url: '"	. $this->webroot . "picker/picker/country',
+		filter: function (list) {
+			return \$.map(list, function (country) { return { name: country }; });
+		}
+	}
+});
+countries.initialize();
+
+$('#prefetch .typeahead').typeahead(null, {
+	name: 'countries',
+	displayKey: 'name',
+	source: countries.ttAdapter()
+});});"
+
+	, self::$AIF);
+		return $this->input($fieldName, $options);
+	}
+	
 	/**
 	 * generate a location / address picker via location.jquery.js.
 	 *
