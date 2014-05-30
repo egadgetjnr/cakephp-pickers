@@ -42,7 +42,7 @@ or `CakePlugin::loadAll();` method. Next, you can include picker helper in `$hel
 
 ```php
 class AppController extends Controller {
-    public $helpers = array('Picker.Picker');
+    public $helpers = array('Picker.PickerForm');
 }
 
 // or
@@ -51,7 +51,7 @@ class AppController extends Controller {
     // use Picker plugin as a FormHelper
     public $helpers = array(
         'Html' => array('className' => 'BoostCake.BoostCakeHtml'),
-        'Form' => array('className' => 'Picker.Picker'));
+        'Form' => array('className' => 'Picker.PickerForm'));
     }
 }
 ```
@@ -101,7 +101,7 @@ You can change paths of javascript libraries. Default configuration is listed be
 
 ```php
 public $helpers = array(
-    // or 'Picker.Picker' => array(
+    // or 'Picker.PickerForm' => array(
     'Form' => array('className' => 'Picker.Picker',
         
         'jsfiles' => array(
