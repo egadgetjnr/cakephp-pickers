@@ -345,6 +345,9 @@ class PickerFormHelper extends BoostCakeFormHelper {
 		);
 	}
 	
+	public function country($fieldName, $options = array()) {
+		
+	}
 	// Private methods
 	// --------------------------------------------------------------------------
 	
