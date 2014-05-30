@@ -435,5 +435,5 @@ class PickerHelper extends BoostCakeFormHelper {
 	private $prefix = 'picker';
 	
 	// SHORT HAND of INLINE => FALSE
-	private $AIF = array('inline' => false);
+	private static $AIF = array('inline' => false);
 }
