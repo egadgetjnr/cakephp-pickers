@@ -265,6 +265,7 @@ class PickerHelper extends BoostCakeFormHelper {
 				JSON_FORCE_OBJECT | JSON_PRETTY_PRINT))
 			. ');',
 			self::$AIF);
+		unset($options['pickerOption']);
 		return $maparea . $this->Form->input($fieldName, $options);
 	}
 
