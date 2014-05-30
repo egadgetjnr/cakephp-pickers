@@ -116,7 +116,7 @@ class PickerFormHelper extends BoostCakeFormHelper {
 		'typeahead'			=> '//cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.2/typeahead.bundle.min.js',
 		'bloodhound'		=> '//cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.2/bloodhound.min.js',
 
-		// javascript timezone detection library
+		// JavaScript TimeZone detection library
 		'jstz' => '//cdnjs.cloudflare.com/ajax/libs/jstimezonedetect/1.0.4/jstz.min.js',
 		
 		// Location Picker :: http://logicify.github.io/jquery-locationpicker-plugin/
