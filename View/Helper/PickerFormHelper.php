@@ -397,9 +397,7 @@ $('#". $this->domId($fieldName) . "').val(timezone.name());",
 		);
 	}
 	
-	public function country($fieldName, $options = array()) {
-		
-	}
+
 	// Private methods
 	// --------------------------------------------------------------------------
 	
