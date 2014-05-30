@@ -247,7 +247,7 @@ class PickerHelper extends BoostCakeFormHelper {
 			array(
 				'style' => 'width:500px;height:380px;', 
 				'inputBinding' => array(
-					'locationNameInput' => "\$('#" . $this->domId($fieldName) . "')'")));
+					'locationNameInput' => "\$('#" . $this->domId($fieldName) . "')")));
 		
 		if (strstr($options['class'], 'form-control') === false) {
 			$options['class'] = "${options['class']} form-control";
