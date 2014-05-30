@@ -116,6 +116,9 @@ class PickerFormHelper extends BoostCakeFormHelper {
 		'typeahead'			=> '//cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.2/typeahead.bundle.min.js',
 		'bloodhound'		=> '//cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.2/bloodhound.min.js',
 
+		// javascript timezone detection library
+		'jstz' => '//cdnjs.cloudflare.com/ajax/libs/jstimezonedetect/1.0.4/jstz.min.js',
+		
 		// Location Picker :: http://logicify.github.io/jquery-locationpicker-plugin/
 		'gmaps' 			=> 'http://maps.google.com/maps/api/js?sensor=false&libraries=places', 
 		'location' 			=> 'Picker.locationpicker.jquery');
@@ -150,7 +153,7 @@ class PickerFormHelper extends BoostCakeFormHelper {
 	 * ### Default Values
 	 * $settings allows two arrays 'jsfiles' and 'cssfiles'.
 	 * 
-	 * {{{
+	 * ```php
 	 * public $helpers = array(
 	 * 		'Picker.Picker' => array(
 	 * 
@@ -167,7 +170,7 @@ class PickerFormHelper extends BoostCakeFormHelper {
 	 * 				'color' => 'Picker.jquery.minicolors',
 	 * 				'date' => 'Picker.bootstrap-datetimepicker.min'))));
 	 *
-	 * }}}
+	 * ```
 	 * @param object $View an instance of CakeView? Object.
 	 * @param array $settings Parameters set at AppController::$helpers array.
 	 */
@@ -289,8 +292,7 @@ $('#prefetch .typeahead').typeahead(null, {
 			 $options['pickerOption']['style'] . '"></div>';
 		unset($options['pickerOption']['style']);
 		
-		$this->loadFiles(array(
-			'jquery', 'bootstrap', 'gmaps', 'location'));
+		$this->loadFiles(array('jquery', 'bootstrap', 'gmaps', 'location'));
 		echo $this->Html->scriptBlock("\$('#${divId}').locationpicker(" 
 			. preg_replace('/"*"/', '$1', json_encode($options['pickerOption'], 
 				JSON_FORCE_OBJECT | JSON_PRETTY_PRINT))
@@ -300,6 +302,26 @@ $('#prefetch .typeahead').typeahead(null, {
 		return $maparea . $this->Form->input($fieldName, $options);
 	}
 
+	// http://timezonepicker.com/
+	// https://github.com/quicksketch/timezonepicker
+	/**
+	 * timezone method generates timezone picker input form using
+	 * quicksketch/timezonepicker.
+	 *
+	 * @param string $fieldName a fieldname
+	 * @param array $options
+	 */
+	 public function timezone($fieldName, $options = array()) {
+	
+	
+		$this->loadFiles(array('jquery', 'jstz'));
+		echo $this->Html->scriptBlock(
+			"var timezone = jstz.determine_timezone();
+$('#". $this->domId($fieldName) . "').val(timezone.name());",
+			self::$AIF);
+
+		return $this->Form->input($fieldName, $options);
+	}
 
 	/**
 	 * generate date picker form via bootstrap-datetimepicker.js
@@ -361,14 +383,6 @@ $('#prefetch .typeahead').typeahead(null, {
 				'pickTime' => true));
 		
 		return $this->generateDateTimePicker($fieldName, $options);
-	}
-	
-	// TimeZone Picker DOES NOT IMPLEMENTS YET
-	public function timezone($fieldName, $options = array()) {
-
-		throw new NotImplementedException(
-			'PickerHelper::timezone picker does not implement yet.');
-		
 	}
 	
 	public function address($fieldName, $options = array()) {

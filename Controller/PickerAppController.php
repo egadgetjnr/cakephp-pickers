@@ -1,7 +1,7 @@
 <?php
-App::uses('Controller', 'Controller');
+App::uses('AppController', 'Controller');
 
-class PickerAppController extends Controller {
+class PickerAppController extends AppController {
 
 	public $helpers = array(
 		'Html' => array('BoostCake.BoostCakeHtml'),
