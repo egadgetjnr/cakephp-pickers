@@ -302,24 +302,29 @@ $('#prefetch .typeahead').typeahead(null, {
 		return $maparea . $this->Form->input($fieldName, $options);
 	}
 
-	// http://timezonepicker.com/
-	// https://github.com/quicksketch/timezonepicker
+
 	/**
 	 * timezone method generates timezone picker input form using
 	 * quicksketch/timezonepicker.
 	 *
+	 * @see http://timezonepicker.com/
+	 * @see https://github.com/quicksketch/timezonepicker
 	 * @param string $fieldName a fieldname
 	 * @param array $options
 	 */
 	 public function timezone($fieldName, $options = array()) {
-	
-	
+
+	 	if (strstr($options['class'], 'form-control') === false) {
+	 		$options['class'] = "${options['class']} form-control";
+	 	}
+	 	
 		$this->loadFiles(array('jquery', 'jstz'));
+		
 		echo $this->Html->scriptBlock(
 			"var timezone = jstz.determine_timezone();
 $('#". $this->domId($fieldName) . "').val(timezone.name());",
 			self::$AIF);
-
+		unset($options['pickerOption']);
 		return $this->Form->input($fieldName, $options);
 	}
 
