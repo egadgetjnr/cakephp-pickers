@@ -14,4 +14,8 @@ class Picker extends PickerAppModel {
 			__('United States')
 		);
 	}
+	
+	public function timezone() {
+		return array();
+	}
 }
