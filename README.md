@@ -21,100 +21,111 @@ Other requirement / constraints may follow other libraries requirement.
 ## Installation
 When using `composer`, ensure `require` is present in `composer.json`. This will install the plugin into `Plugin/Picker`:
 
-    {
-        "require": {
-            "rcsv/cakephp-pickers-collection": "*"
-        }
+```json
+{
+    "require": {
+        "rcsv/cakephp-pickers-collection": "*"
     }
+}
+```
 
 When use git submodule command
 
-    git submodule add https://github.com/rcsv/cakephp-pickers-collection.git app/Plugin/Picker
+```sh
+git submodule add https://github.com/rcsv/cakephp-pickers-collection.git app/Plugin/Picker
+```
 
 ### Setup
 
 Ensure the plugin is loaded in `app/Config/bootstrap.php` by calling `CakePlugin::load('Picker');` 
 or `CakePlugin::loadAll();` method. Next, you can include picker helper in `$helpers` array.
 
-    class AppController extends Controller {
-        public $helpers = array('Picker.Picker');
+```php
+class AppController extends Controller {
+    public $helpers = array('Picker.Picker');
+}
+
+// or
+
+class AppController extends Controller {
+    // use Picker plugin as a FormHelper
+    public $helpers = array(
+        'Html' => array('className' => 'BoostCake.BoostCakeHtml'),
+        'Form' => array('className' => 'Picker.Picker'));
     }
-    //
-    // or
-    //
-    class AppController extends Controller {
-        // use Picker plugin as a FormHelper
-        public $helpers = array(
-            'Html' => array('className' => 'BoostCake.BoostCakeHtml'),
-            'Form' => array('className' => 'Picker.Picker'));
-        }
-    }
+}
+```
 
 ## How to use
 You can use Picker plugin as a normal FormHelper.
 
-    // You can start Form normally.
-    echo $this->Form->create('PickerCollection');
-    echo $this->Form->input('title');
+```php
+// You can start Form normally.
+echo $this->Form->create('PickerCollection');
+echo $this->Form->input('title');
 
-    // jquery Minicolors plugin
-    echo $this->Form->color('bgcolor');
-    
-    // jquery Datetimepicker (date mode)
-    echo $this->Form->date('start');
-    
-    // jquery Datetimepicker (time mode)
-    echo $this->Form->time('time');
-    
-    // jquery Datetimepicker (both mode)
-    echo $this->Form->datetime('modified');
-    
-    echo $this->Form->end('end');
+// jquery Minicolors plugin
+echo $this->Form->color('bgcolor');
+
+// jquery Datetimepicker (date mode)
+echo $this->Form->date('start');
+
+// jquery Datetimepicker (time mode)
+echo $this->Form->time('time');
+
+// jquery Datetimepicker (both mode)
+echo $this->Form->datetime('modified');
+
+echo $this->Form->end('end');
+```
 
 ## Preference
 ### Add config into method
 You can set more configuration via second parameter. The jQuery pickers can receive option values via `pickerOption` array.
 
-    echo $this->Form->color('bgcolor', array(
-        'class' => 'exampleclass1 exampleclass2',
-        'wrapInput' => false,
-        'placeholder' => '#RRGGBB',
-        // you can set minicolors.jquery plugin via 'pickerOption'.
-        // To check available options of minicolors jquery, see 
-        // http://labs.abeautifulsite.net/jquery-minicolors/
-        'pickerOption' => array(
-            'theme' => 'bootstrap',
-            'control' => 'saturation')));
-
+```php
+echo $this->Form->color('bgcolor', array(
+    'class' => 'exampleclass1 exampleclass2',
+    'wrapInput' => false,
+    'placeholder' => '#RRGGBB',
+    // you can set minicolors.jquery plugin via 'pickerOption'.
+    // To check available options of minicolors jquery, see 
+    // http://labs.abeautifulsite.net/jquery-minicolors/
+    'pickerOption' => array(
+        'theme' => 'bootstrap',
+        'control' => 'saturation')));
+```
 
 ### Change libraries path
 You can change paths of javascript libraries. Default configuration is listed below.
 
-    public $helpers = array(
-        // or 'Picker.Picker' => array(
-        'Form' => array('className' => 'Picker.Picker',
-            
-            'jsfiles' => array(
-                'jquery' => 
-                    '//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js',
-                'bootstrap' => 
-                    '//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js',
-                'color' => 
-                    'Picker.jquery.minicolors.min',
-                'moment' => 
-                    '//cdnjs.cloudflare.com/ajax/libs/moment.js/2.6.0/moment.min.js',
-                'date' => 
-                    '//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/css/bootstrap-datetimepicker.min.js',  
-                'location' => 
-                    'Picker.locationpicker.jquery'),
+```php
+public $helpers = array(
+    // or 'Picker.Picker' => array(
+    'Form' => array('className' => 'Picker.Picker',
         
-            'cssfiles' => array(
-                'bootstrap'
-                    => '//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css', 
-                'color'
-                    => 'Picker.jquery.minicolors', 
-                'date' =>
-                    '//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/css/bootstrap-datetimepicker.min.css')));
+        'jsfiles' => array(
+            'jquery' => 
+                '//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js',
+            'bootstrap' => 
+                '//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js',
+            'color' => 
+                'Picker.jquery.minicolors.min',
+            'moment' => 
+                '//cdnjs.cloudflare.com/ajax/libs/moment.js/2.6.0/moment.min.js',
+            'date' => 
+                '//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/css/bootstrap-datetimepicker.min.js',  
+            'location' => 
+                'Picker.locationpicker.jquery'),
+    
+        'cssfiles' => array(
+            'bootstrap'
+                => '//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css', 
+            'color'
+                => 'Picker.jquery.minicolors', 
+            'date' =>
+                '//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/css/bootstrap-datetimepicker.min.css')));
+```
 
 **NOTE:** There are some path with prefixed 'Picker.', Those files store in plugin directly. CakePHP system is not good at loading files from plugin directly. So you should change some paths from 'Picker.*' to your `app/webroot/`.
 
