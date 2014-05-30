@@ -1,7 +1,7 @@
 <?php
 App::uses('FormHelper', 'View/Helper');
 App::uses('HtmlHelper', 'View/Helper');
-
+App::uses('BoostCakeFormHelper', 'BoostCake.View/Helper');
 
 /**
  * Picker Helper
