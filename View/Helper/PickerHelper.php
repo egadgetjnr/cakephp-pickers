@@ -111,7 +111,7 @@ class PickerHelper extends BoostCakeFormHelper {
 		// moment.js required >= 2.5.1 by datetimepicker
 		'moment' 			=> '//cdnjs.cloudflare.com/ajax/libs/moment.js/2.6.0/moment.min.js',  
 		// 'moment.ja' 		=> '//cdnjs.cloudflare.com/ajax/libs/moment.js/2.6.0/lang/ja.js', 
-		'date' 				=> '//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/css/bootstrap-datetimepicker.min.js', 
+		'date' 				=> '//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/js/bootstrap-datetimepicker.min.js', 
 		// 'date.ja' 			=> 'Picker.locales/bootstrap-datetimepicker.ja',
 		'gmaps' 			=> 'http://maps.google.com/maps/api/js?sensor=false&libraries=places', 
 		// Location Picker :: http://logicify.github.io/jquery-locationpicker-plugin/
