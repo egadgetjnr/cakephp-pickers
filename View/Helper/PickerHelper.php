@@ -262,7 +262,8 @@ class PickerHelper extends BoostCakeFormHelper {
 			'jquery', 'bootstrap', 'gmaps', 'location'));
 		echo $this->Html->scriptBlock("\$('#${divId}').locationpicker(" 
 			. preg_replace('/"*"/', '$1', json_encode($options['pickerOption'], 
-				JSON_FORCE_OBJECT | JSON_PRETTY_PRINT)),
+				JSON_FORCE_OBJECT | JSON_PRETTY_PRINT))
+			. ');',
 			self::$AIF);
 		return $maparea . $this->Form->input($fieldName, $options);
 	}
