@@ -22,8 +22,7 @@
 	},
 	"require": {
 		"php": ">=5.3.0",
-		"slywalker/boost_cake": "*",
-		"composer/installers": "*"
+		"slywalker/boost_cake": ">=1.0.5"
 	},
 	"suggest": {
 		"twitter/bootstrap": "Bootstrap for Twitter"
