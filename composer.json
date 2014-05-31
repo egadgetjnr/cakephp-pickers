@@ -1,6 +1,7 @@
 {
 	"name": "rcsv/cakephp-pickers-collection",
 	"type": "cakephp-plugin",
+	"version": "0.2.0",
 	"description": "Picker is a plugin for CakePHP using jQuery pickers.",
 	"keywords": [
 		"cakephp",
