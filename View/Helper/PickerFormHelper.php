@@ -1,4 +1,5 @@
 <?php
+///@formatter:off
 /*
  * The MIT License (MIT)
  * Copyright (c) 2014 rcsv
@@ -21,6 +22,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+///@formatter:on
 App::uses('BoostCakeFormHelper', 'BoostCake.View/Helper');
 /**
  * Picker.PickerForm Helper

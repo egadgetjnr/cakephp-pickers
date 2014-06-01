@@ -1,4 +1,5 @@
 <?php
+///@formatter:off
 /*
  * The MIT License (MIT)
  * Copyright (c) 2014 rcsv
@@ -21,5 +22,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+///@formatter:on
 // STAB CTP
 // do nothing especially here.

@@ -1,5 +1,6 @@
 <?php
-/*
+///@formatter:off
+/* 
  * The MIT License (MIT)
  * Copyright (c) 2014 rcsv
  * 
@@ -21,11 +22,22 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+///@formatter:on
 App::uses('PickerAppController', 'Picker.Controller');
 
+
 class PickerController extends PickerAppController {
-	
+
+
+	/**
+	 * return country list.
+	 * 
+	 * @return json formatted country array.
+	 */
 	public function country() {
-		json_encode($this->Picker->countries);
+
+		$this->layout = false;
+		json_encode($this->Picker->getCountryList());
+		$this->render('stub');
 	}
 }

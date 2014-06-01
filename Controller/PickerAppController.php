@@ -1,6 +1,6 @@
 <?php
-/* @formatter:off
- * 
+///@formatter:off
+/* 
  * The MIT License (MIT)
  * Copyright (c) 2014 rcsv
  * 
@@ -33,8 +33,9 @@ class PickerAppController extends AppController {
 	 * 
 	 * @var array
 	 */
+	///@formatter:off
 	public $helpers = array(
 		'Html' => array('BoostCake.BoostCakeHtml'), 
 		'Form' => array('Picker.PickerForm'));
-
+	///@formatter:on
 }
