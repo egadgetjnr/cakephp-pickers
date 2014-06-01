@@ -21,11 +21,8 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-App::uses('PickerAppController', 'Picker.Controller');
+App::uses('PickerAppModel', 'Picker.Model');
 
-class PickerController extends PickerAppController {
+class Picker extends PickerAppModel {
 	
-	public function country() {
-		json_encode($this->Picker->countries);
-	}
 }
