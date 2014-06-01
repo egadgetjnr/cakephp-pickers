@@ -1,29 +1,54 @@
 <?php
-App::uses('BoostCakeHtmlHelper', 'BoostCake.View/Helper');
+/*
+ * The MIT License (MIT)
+ * Copyright (c) 2014 rcsv
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
 App::uses('BoostCakeFormHelper', 'BoostCake.View/Helper');
-
 /**
- * Picker Helper
+ * Picker.PickerForm Helper
  *
- * Generate data pickers with HTML FORM INPUT + javascript.
+ * `Picker.PickerFormHelper` will support you what generate visual data-pickers
+ * with javascript. These pickers that will be displayed are using 'jQuery' and
+ * a 'Twitter Bootstrap' directly. So, all layout based on them.
  *
- * ## How to use
- * Load plugin at `app/Config/bootstrap.php`.
- *
- * CakePlugin::loadAll();
- * // or
- * CakePlugin::load('Picker');
- *
- * Then, declare to use it in a AppController.php.
- *
- * public $helpers = array(
- * 'Picker.Picker',
- * 'jsfiles' => array(....),
- * 'cssfiles' => array(...)));
- *
- * @package Picker.View.Helper
+ * ### How to use
+ * CakePHP Application Designer can use its helper as a replacement of 
+ * `BoostCake.BoostCakeFormHelper` or a `FormHelper` of CakePHP itself bound.
+ * 
+ * Please write `CakePlugin::loadAll();` in `app/Config/bootstrap.php` when you
+ * use it, and register it in $helpers array in `app/Controller/AppController.php`.
+ * 
+ * ### Available Method
+ * Available methods listed below:
+ * 
+ * 1. `color()` generate color picker using jquery.minicolors.js.
+ * 2. `date()` and `time()` and `dateAndTime()` generate datetime picker using
+ *    `bootstrap-datetimepicker.js`.
+ * 3. `timezone()` displays timezone picker.
+ * 
+ * 
+ * @since 0.2.0
+ * @package Picker.View/Helper
  * @author rcsvpg@gmail.com
- * @link http://github.com/rcsv/pickers-collection
+ * @link http://github.com/rcsv/cakephp-pickers-collection
  */
 class PickerFormHelper extends BoostCakeFormHelper {
 	
@@ -484,7 +509,7 @@ $('#". $this->domId($fieldName) . "').val(timezone.name());",
 	 * @return string
 	 */
 	private function getSerial() {
-		return $this->prefix .  ++$this->serial;
+		return $this->prefix . ++$this->serial;
 	}
 
 
