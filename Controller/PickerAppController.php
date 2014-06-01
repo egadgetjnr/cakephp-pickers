@@ -1,5 +1,6 @@
 <?php
-/*
+/* @formatter:off
+ * 
  * The MIT License (MIT)
  * Copyright (c) 2014 rcsv
  * 
@@ -21,11 +22,19 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+///@formatter:on
 App::uses('AppController', 'Controller');
+
 
 class PickerAppController extends AppController {
 
+	/**
+	 * Register helpers what PickerPlugin will use.
+	 * 
+	 * @var array
+	 */
 	public $helpers = array(
-		'Html' => array('BoostCake.BoostCakeHtml'),
+		'Html' => array('BoostCake.BoostCakeHtml'), 
 		'Form' => array('Picker.PickerForm'));
+
 }
