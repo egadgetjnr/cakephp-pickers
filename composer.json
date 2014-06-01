@@ -2,7 +2,7 @@
 	"name": "rcsv/cakephp-pickers-collection",
 	"type": "cakephp-plugin",
 	"version": "0.2.0",
-	"description": "Picker is a plugin for CakePHP using jQuery pickers.",
+	"description": "A CakePHP plugin using jQuery color/date/time and timezone pickers.",
 	"keywords": [
 		"cakephp",
 		"bootstrap",
