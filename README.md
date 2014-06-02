@@ -122,6 +122,8 @@ public $helpers = array(
             // moment uses when you called date(), time(), and datetime() methods.
             'moment' => 
                 '//cdnjs.cloudflare.com/ajax/libs/moment.js/2.6.0/moment.min.js',
+            'moment.ja' =>
+                '//cdnjs.cloudflare.com/ajax/libs/moment.js/2.6.0/locales/moment.........',
 
             'date' => 
                 '//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/css/bootstrap-datetimepicker.min.js',  
