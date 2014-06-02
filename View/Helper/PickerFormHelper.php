@@ -214,7 +214,6 @@ class PickerFormHelper extends BoostCakeFormHelper {
 	 * @param array $settings Parameters set at AppController::$helpers array.
 	 */
 	public function __constructor($View, $settings = array()) {
-
 		$this->serial = 0;
 		if (!empty($settings['jsfiles'])) $this->jsfiles += $settings['jsfiles'];
 		if (!empty($settings['cssfiles'])) $this->cssfiles += $settings['cssfiles'];

@@ -97,27 +97,40 @@ echo $this->Form->color('bgcolor', array(
 ```
 
 ### Change libraries path
-You can change paths of javascript libraries. Default configuration is listed below.
+You can change paths of javascript and CSS libraries. Default configuration is
+listed below, you can modify prefer URL.
 
 ```php
 public $helpers = array(
-    // or 'Picker.PickerForm' => array(
-    'Form' => array('className' => 'Picker.Picker',
-        
+    'Form' => array(
+        'className' => 'Picker.Picker',
+
+        // JAVASCRIPT DEFAULT VALUES
+		// =========================
         'jsfiles' => array(
+
+        	// jquery and bootstrap always use.
             'jquery' => 
                 '//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js',
             'bootstrap' => 
                 '//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js',
+
+            // color uses when you called color() method
             'color' => 
                 'Picker.jquery.minicolors.min',
+
+            // moment uses when you called date(), time(), and datetime() methods.
             'moment' => 
                 '//cdnjs.cloudflare.com/ajax/libs/moment.js/2.6.0/moment.min.js',
+
             'date' => 
                 '//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/css/bootstrap-datetimepicker.min.js',  
+
             'location' => 
                 'Picker.locationpicker.jquery'),
-    
+
+    	// CSS DEFAULT PATHS
+    	// =========================
         'cssfiles' => array(
             'bootstrap'
                 => '//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css', 
