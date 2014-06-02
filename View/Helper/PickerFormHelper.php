@@ -432,7 +432,7 @@ $('#". $this->domId($fieldName) . "').val(timezone.name());",
 	public function address($fieldName, $options = array()) {
 		
 		throw new NotImplemetedException(
-			'PickerHelper::timezone picker does not implement yet.'
+			__d('Picker', 'PickerHelper::timezone picker does not implement yet.')
 		);
 	}
 	
