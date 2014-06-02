@@ -99,32 +99,5 @@ echo $this->Form->color('bgcolor', array(
 ### Change libraries path
 You can change paths of javascript libraries. Default configuration is listed below.
 
-```php
-public $helpers = array(
-    // or 'Picker.PickerForm' => array(
-    'Form' => array('className' => 'Picker.Picker',
-        
-        'jsfiles' => array(
-            'jquery' => 
-                '//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js',
-            'bootstrap' => 
-                '//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js',
-            'color' => 
-                'Picker.jquery.minicolors.min',
-            'moment' => 
-                '//cdnjs.cloudflare.com/ajax/libs/moment.js/2.6.0/moment.min.js',
-            'date' => 
-                '//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/css/bootstrap-datetimepicker.min.js',  
-            'location' => 
-                'Picker.locationpicker.jquery'),
-    
-        'cssfiles' => array(
-            'bootstrap'
-                => '//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css', 
-            'color'
-                => 'Picker.jquery.minicolors', 
-            'date' =>
-                '//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/css/bootstrap-datetimepicker.min.css')));
-```
 
 **NOTE:** There are some path with prefixed 'Picker.', Those files store in plugin directly. CakePHP system is not good at loading files from plugin directly. So you should change some paths from 'Picker.*' to your `app/webroot/`.
