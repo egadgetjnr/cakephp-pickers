@@ -226,7 +226,7 @@ class PickerFormHelper extends BoostCakeFormHelper {
 	 * Generate input tag and enabled Colorpicker.
 	 * See a [demo page](http://labs.abeautifulsite.net/jquery-minicolors/).
 	 * 
-	 * {{{
+	 * ```php
 	 * echo $this->Picker->color('Color', array(
 	 *		'class' => 'a',
 	 *	 	'pickerOption' => array(
@@ -245,7 +245,7 @@ class PickerFormHelper extends BoostCakeFormHelper {
 	 *			'show' => null,
 	 *			'showSpeed' => 100,
 	 *			'theme'	=> 'default' || 'bootstrap')));
-	 * }}}
+	 * ```
 	 *
 	 * @param string $fieldName a fieldname.
 	 * @param array $options options array.
@@ -408,8 +408,8 @@ $('#". $this->domId($fieldName) . "').val(timezone.name());",
 	/**
 	 * dateAndTime method generates time picker form via
 	 * bootstrap-datetimepicker.js.
-	 * It name was `dateTime` originally, but same
-	 * method already existed in FormHelper. So, it had to change the name.
+	 * It name was `dateTime` originally, but same method already existed in
+	 * `FormHelper`. So, it had to change the name.
 	 *
 	 * @param string $fieldName
 	 * @param array $options
@@ -428,6 +428,13 @@ $('#". $this->domId($fieldName) . "').val(timezone.name());",
 		return $this->generateDateTimePicker($fieldName, $options);
 	}
 	
+	/**
+	 * address picker
+	 * 
+	 * @param string $fieldName
+	 * @param array $options
+	 * @throws NotImplemetedException
+	 */
 	public function address($fieldName, $options = array()) {
 		
 		throw new NotImplemetedException(
@@ -455,12 +462,11 @@ $('#". $this->domId($fieldName) . "').val(timezone.name());",
 			$options['class'] = "${options['class']} form-control";
 		}
 		
-		$this->loadFiles(array(
-			'jquery', 'moment', 'bootstrap', 'date'));
+		$this->loadFiles(array('jquery', 'moment', 'bootstrap', 'date'));
 		
 		if (!empty($options['pickerOption']['language'])) {
-			$this->loadFiles(array(
-				'date.' . $options['pickerOption']['language']));
+			$this->loadFiles(array('date.'.$options['pickerOption']['language']));
+			$this->loadFiles(array('moment.'.$options['pickerOption']['language']));
 		}
 		
 		$divId = $this->getSerial();
