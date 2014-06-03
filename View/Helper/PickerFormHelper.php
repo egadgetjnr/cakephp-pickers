@@ -173,12 +173,9 @@ class PickerFormHelper extends BoostCakeFormHelper {
 	 */
 	///@formatter:off
 	private $cssfiles = array(
-		
 		'bootstrap'	=> '//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css', 
-		'jasny-bootstrap' => '//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css', 
 		'color' 	=> 'Picker.jquery.minicolors', 
-		'date' 		=> '//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/css/bootstrap-datetimepicker.min.css', 
-		'timezone' 	=> '//');
+		'date' 		=> '//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/css/bootstrap-datetimepicker.min.css');
 	///@formatter:on
 	
 
@@ -268,7 +265,7 @@ class PickerFormHelper extends BoostCakeFormHelper {
 		echo $this->Html->scriptBlock(
 			"\$('input.minicolors').minicolors(${pickerOption});",
 			self::$AIF);
-		return $this->Form->input($fieldName, $options);
+		return $this->input($fieldName, $options);
 	}
 
 
@@ -363,7 +360,7 @@ $('#prefetch .typeahead').typeahead(null, {
 $('#". $this->domId($fieldName) . "').val(timezone.name());",
 			self::$AIF);
 		unset($options['pickerOption']);
-		return $this->Form->input($fieldName, $options);
+		return $this->input($fieldName, $options);
 	}
 
 	/**
@@ -479,7 +476,7 @@ $('#". $this->domId($fieldName) . "').val(timezone.name());",
 			self::$AIF);
 		
 		unset($options['pickerOption']);
-		return $this->Form->input($fieldName, $options);
+		return $this->input($fieldName, $options);
 	}
 	
 	
