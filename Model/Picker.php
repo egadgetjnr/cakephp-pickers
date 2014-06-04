@@ -28,6 +28,14 @@ App::uses('PickerAppModel', 'Picker.Model');
 class Picker extends PickerAppModel {
 	
 	/**
+	 * getTimezone method returns an array of PHP timezone names. 
+	 */
+	public function getTimezone() {
+		return DateTimeZone::listIdentifiers();
+	}
+	
+	
+	/**
 	 * getCountryList returns country array. Country list refered by A-Z List of
 	 * Country and Other Area Pages. http://www.state.gov/misc/list/
 	 */
@@ -312,6 +320,11 @@ class Picker extends PickerAppModel {
 	}
 
 
+	/**
+	 * getProvince method returns PROVINCE. It always returns Japanese provinces list right now.
+	 * 
+	 * @param string $country a country name what want to get province list.
+	 */
 	public function getProvince($country) {
 
 		switch ($country) {
