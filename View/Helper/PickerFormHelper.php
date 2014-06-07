@@ -131,32 +131,26 @@ class PickerFormHelper extends BoostCakeFormHelper {
 		'jquery' 	=> '//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js', 
 		'bootstrap'	=> '//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js',
 		'modernizr'	=> '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.min.js',
-		
-		
+
 		// jQuery Minicolors
 		'color' 	=> 'Picker.jquery.minicolors.min',
-
 
 		// moment.js required >= 2.5.1 by datetimepicker
 		// support locales
 		'moment' 	=> '//cdnjs.cloudflare.com/ajax/libs/moment.js/2.6.0/moment.min.js',  
 		// 'moment.ja' 	=> '//cdnjs.cloudflare.com/ajax/libs/moment.js/2.6.0/lang/ja.js', 
 
-
 		// bootstrap-datetimepicker 
 		// support locales
 		'date' 		=> '//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/js/bootstrap-datetimepicker.min.js', 
 		// 'date.ja'    => 'Picker.locales/bootstrap-datetimepicker.ja',
 
-
 		// Autocomplete
 		'typeahead'	=> '//cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.2/typeahead.bundle.min.js',
 		'bloodhound'	=> '//cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.2/bloodhound.min.js',
 
-
 		// JavaScript TimeZone detection library
 		'jstz' 		=> '//cdnjs.cloudflare.com/ajax/libs/jstimezonedetect/1.0.4/jstz.min.js',
-
 
 		// Location Picker :: http://logicify.github.io/jquery-locationpicker-plugin/
 		'gmaps' 	=> 'http://maps.google.com/maps/api/js?sensor=false&libraries=places', 
@@ -175,7 +169,8 @@ class PickerFormHelper extends BoostCakeFormHelper {
 	private $cssfiles = array(
 		'bootstrap'	=> '//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css', 
 		'color' 	=> 'Picker.jquery.minicolors', 
-		'date' 		=> '//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/css/bootstrap-datetimepicker.min.css');
+		'date' 		=> '//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/css/bootstrap-datetimepicker.min.css',
+		'typeahead' => 'Picker.jquery.typeahead');
 	///@formatter:on
 	
 
@@ -216,6 +211,14 @@ class PickerFormHelper extends BoostCakeFormHelper {
 		if (!empty($settings['cssfiles'])) $this->cssfiles += $settings['cssfiles'];
 		unset($settings['jsfiles'], $settings['cssfiles']);
 		parent::__construct($View, $settings);
+	}
+
+	/**
+	 * override method. just add role="form". 
+	 */
+	public function create($model = null, $options = array()) {
+		// add attribute role="form". Actually, I don't know why we set it in bootstrap.
+		return parent::create($model, $options += array('role' => 'form'));
 	}
 
 
@@ -338,8 +341,52 @@ $('#prefetch .typeahead').typeahead(null, {
 	}
 
 
+
 	/**
-	 * timezone method generates timezone picker input form using
+	 * `phpTimezone()` method generate autocomplete textbox. 
+	 * 
+	 * @param string $fieldName
+	 * @param array $options
+	 */
+	public function phpTimezone($fieldName, $options = array()) {
+		return $this->typeAhead($fieldName, $options);
+	}
+	
+	/**
+	 * Call typeahead.js + Bloodhound
+	 * 
+	 * @param string $fieldName
+	 * @param array $options
+	 */
+	protected function typeahead($fieldName, $options = array()) {
+		// load external resources
+		$this->loadFiles(array('jquery', 'bootstrap', 'typeahead', 'bloodhound'));
+		$options['class'] = isset($options['class']) && strpos($options['class'], 'typeahead form-control') === FALSE
+			? "${options['class']} typeahead form-control"
+			: "typeahead form-control";
+		$divId = $this->domId($fieldName); // It does not work when use without `PickerFormHelper::create()` method.
+		$fetchURL = $this->webroot . "picker/picker/${fieldName}";
+		
+		// javascript source will embedded into HTML.
+		$script = "var ${fieldName} = new Bloodhound({ 
+	datumTokenizer: Bloodhound.tokenizer.obj.nonword('name'), 
+	queryTokenizer: Bloodhound.tokenizers.nonword,
+	limit: 40,
+	prefetch: {
+		url: '${fetchURL}', remote: '${fetchURL}?q=%QUERY', 
+		filter: function(list) {
+			return $.map(list, function(item) { return { name: item }; }); }}});
+${fieldName}.initialize(); 
+$('#${divId}').typeahead({ hint: true, highlight: true, minLength: 1},
+{ name: '${fieldName}', displayKey: 'name', source: ${fieldName}.ttAdapter() });";
+		
+		echo $this->Html->scriptBlock($script, array('inline' => false));
+		unset($options['pickerOption']);
+		return $this->input($fieldName, $options);
+	}
+
+	/**
+	 * `timezone()` method represents timezone picker input form using
 	 * quicksketch/timezonepicker.
 	 *
 	 * @see http://timezonepicker.com/
@@ -363,6 +410,7 @@ $('#". $this->domId($fieldName) . "').val(timezone.name());",
 		return $this->input($fieldName, $options);
 	}
 
+	
 	/**
 	 * generate date picker form via bootstrap-datetimepicker.js
 	 *
@@ -432,8 +480,7 @@ $('#". $this->domId($fieldName) . "').val(timezone.name());",
 	 * @param array $options
 	 * @throws NotImplemetedException
 	 */
-	public function address($fieldName, $options = array()) {
-		
+	public function address($fieldName, $options = array()) {	
 		throw new NotImplemetedException(
 			'PickerHelper::timezone picker does not implement yet.'
 		);

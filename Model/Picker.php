@@ -28,8 +28,25 @@ App::uses('PickerAppModel', 'Picker.Model');
 class Picker extends PickerAppModel {
 	
 	/**
-	 * getCountryList returns country array. Country list refered by A-Z List of
-	 * Country and Other Area Pages. http://www.state.gov/misc/list/
+	 * `getTimezone()` method generate the timezone list PHP defined via 
+	 * `DateTimeZone::listIdentifiers()` method.
+	 * 
+	 * @param string $query
+	 */
+	public function getTimezone($query = null) {
+		if (!isset($query)) return DateTimeZone::listIdentifiers();
+		
+		// trim timezone list before return when $query string is not null.
+		return array_filter(DateTimeZone::listIdentifiers(), function($var) use ($query) {
+			return FALSE !== stripos($var, $query);
+		});
+	}
+	
+	/**
+	 * `getCountryList()` method returns countries list. Country list refered by
+	 * A-Z List of Country and Other Area Pages. 
+	 * 
+	 * @see http://www.state.gov/misc/list/
 	 */
 	public function getCountryList() {
 		///@formatter:off
