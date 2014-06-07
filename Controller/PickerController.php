@@ -35,7 +35,6 @@ class PickerController extends PickerAppController {
 	 * @return json formatted country array.
 	 */
 	public function country() {
-<<<<<<< HEAD
 		$this->layout = false;
 		$this->render('emp');
 		echo json_encode($this->Picker->getCountryList());
@@ -49,22 +48,5 @@ class PickerController extends PickerAppController {
 		$this->layout = false;
 		$this->render('emp');
 		echo json_encode($this->Picker->getTimezone($this->request->query['q']));
-=======
-		if (!$this->request->is('ajax') { 
-			return; 
-		}
-		$this->layout = false;
-		$this->render('stub');
-		echo json_encode($this->Picker->getCountryList());
-	}
-	
-	public function timezone() {
-		if (!$this->request->is('ajax')) {
-			return;
-		}
-		$this->layout = false;
-		$this->render('stub');
-		echo json_encode($this->Picker->getTimezone());
->>>>>>> f998b725841ea53ca27eeb83b3f2f48aa47c773c
 	}
 }
