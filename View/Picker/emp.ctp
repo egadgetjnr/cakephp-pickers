@@ -23,5 +23,5 @@
  * SOFTWARE.
  */
 ///@formatter:on
-// STAB CTP
+// empty CTP
 // do nothing especially here.

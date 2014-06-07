@@ -35,9 +35,18 @@ class PickerController extends PickerAppController {
 	 * @return json formatted country array.
 	 */
 	public function country() {
-
 		$this->layout = false;
-		json_encode($this->Picker->getCountryList());
-		$this->render('stub');
+		$this->render('emp');
+		echo json_encode($this->Picker->getCountryList());
+	}
+	
+	/**
+	 * timezone() method represents timezone list. Bloouhound Suggestion Engine
+	 * will send query here: '/picker/picker/timezone?q=%QUERY'
+	 */
+	public function timezone() {
+		$this->layout = false;
+		$this->render('emp');
+		echo json_encode($this->Picker->getTimezone($this->request->query['q']));
 	}
 }
