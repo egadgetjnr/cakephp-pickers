@@ -28,7 +28,6 @@ App::uses('PickerAppModel', 'Picker.Model');
 class Picker extends PickerAppModel {
 	
 	/**
-<<<<<<< HEAD
 	 * `getTimezone()` method generate the timezone list PHP defined via 
 	 * `DateTimeZone::listIdentifiers()` method.
 	 * 
@@ -48,18 +47,6 @@ class Picker extends PickerAppModel {
 	 * A-Z List of Country and Other Area Pages. 
 	 * 
 	 * @see http://www.state.gov/misc/list/
-=======
-	 * getTimezone method returns an array of PHP timezone names. 
-	 */
-	public function getTimezone() {
-		return DateTimeZone::listIdentifiers();
-	}
-	
-	
-	/**
-	 * getCountryList returns country array. Country list refered by A-Z List of
-	 * Country and Other Area Pages. http://www.state.gov/misc/list/
->>>>>>> f998b725841ea53ca27eeb83b3f2f48aa47c773c
 	 */
 	public function getCountryList() {
 		///@formatter:off
