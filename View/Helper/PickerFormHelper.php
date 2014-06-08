@@ -460,7 +460,7 @@ $('#". $this->domId($fieldName) . "').val(timezone.name());",
 	 * @param array $options
 	 * @return HTML form input tag with javascript
 	 */
-	public function dateAndTime($fieldName, $options) {
+	public function dateAndTime($fieldName, $options = array()) {
 
 		$options['pickerOption'] = array_merge(
 			array(
