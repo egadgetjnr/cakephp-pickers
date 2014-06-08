@@ -1,7 +1,7 @@
 {
 	"name": "rcsv/cakephp-pickers-collection",
 	"type": "cakephp-plugin",
-	"version": "0.2.0",
+	"version": "0.5.0",
 	"description": "A CakePHP plugin using jQuery color/date/time and timezone pickers.",
 	"keywords": [
 		"cakephp",
