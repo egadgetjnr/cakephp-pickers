@@ -9,7 +9,7 @@
 		"jquery",
 		"formhelper"
 	],
-	"homepage": "http://github.com/rcsv/cakephp-pickers-collection/",
+	"homepage": "http://github.com/rcsv/cakephp-pickers/",
 	"license": "MIT",
 	"authors": [
 		{
@@ -18,8 +18,8 @@
 		}
 	],
 	"support": {
-		"issues": "https://github.com/rcsv/cakephp-pickers-collection/issues",
-		"source": "https://github.com/rcsv/cakephp-pickers-collection"
+		"issues": "https://github.com/rcsv/cakephp-pickers/issues",
+		"source": "https://github.com/rcsv/cakephp-pickers"
 	},
 	"require": {
 		"php": ">=5.3.0",
